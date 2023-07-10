@@ -1,20 +1,20 @@
 import axiosInstance from "../http/axiosConfig";
 
-type Todo = {
+export type Todo = {
     id: number;
     todo: string;
     completed: boolean;
     userId: number;
 };
 
-type TodosResponse = {
+export type TodosResponse = {
     todos: Todo[];
     total: number;
     skip: number;
     limit: number;
 };
 
-type NewTodo = Pick<Todo, "todo" | "completed" | "userId">
+export type NewTodo = Pick<Todo, "todo" | "completed" | "userId">
 
 export const addTodo = async (todo:NewTodo):Promise<Todo> => {
     const response = await axiosInstance.post<Todo>("/todos/add", todo);
