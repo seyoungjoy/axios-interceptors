@@ -2,6 +2,11 @@ import {ChangeEvent, FormEvent, useState} from "react";
 import {useMutation} from "@tanstack/react-query";
 import {addTodo, NewTodo, Todo} from "../services/apis/todoApi";
 import axios, {AxiosError} from "axios";
+import toast from "react-hot-toast";
+
+type AxiosErrorResponse = {
+    message : string;
+}
 
 const TodoForm = () => {
     const [newTodo, setNewTodo] = useState("")
@@ -22,10 +27,10 @@ const TodoForm = () => {
     }
 
     if(isError){
-        if(axios.isAxiosError(error)){
-            alert(error.message)
+        if(axios.isAxiosError<AxiosErrorResponse>(error) && error.response){
+            toast.error(`${error.response.status} : ${error.response.data.message}`)
         } else {
-            alert(error?.message)
+            console.error("error : ", error, error?.message )
         }
     }
 

@@ -1,4 +1,4 @@
-import React from 'react'
+// import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.tsx'
 import {QueryClient, QueryClientProvider} from "@tanstack/react-query";
@@ -8,13 +8,14 @@ const queryClient = new QueryClient({
         queries:{
             retry:0,
             refetchOnWindowFocus:false,
+            suspense:true
         }
     }
 });
 ReactDOM.createRoot(document.getElementById('root')!).render(
-    <React.StrictMode>
+    // <React.StrictMode>
         <QueryClientProvider client={queryClient}>
             <App />
         </QueryClientProvider>
-    </React.StrictMode>,
+    // </React.StrictMode>,
 )
