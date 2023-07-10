@@ -1,4 +1,4 @@
-import { fetchTodos, TodosResponse} from "../services/apis/todoApi";
+import { fetchTodos, TodosResponse} from "../../services/apis/todoApi";
 import { useQuery} from "@tanstack/react-query";
 import {AxiosError} from "axios";
 

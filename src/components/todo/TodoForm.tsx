@@ -1,10 +1,10 @@
 import {ChangeEvent, FormEvent, useState} from "react";
 import {useMutation} from "@tanstack/react-query";
-import {addTodo, NewTodo, Todo} from "../services/apis/todoApi";
+import {addTodo, NewTodo, Todo} from "../../services/apis/todoApi";
 import axios, {AxiosError} from "axios";
 import toast from "react-hot-toast";
 
-type AxiosErrorResponse = {
+export type AxiosErrorResponse = {
     message : string;
 }
 
